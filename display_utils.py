@@ -101,23 +101,23 @@ def display_top_parameters(top_params: list[tuple[str, int]]) -> None:
     print(tabulate.tabulate(table, headers=headers, tablefmt='grid'))
 
 
-def display_films_table(films: list[dict]) -> None:
-    '''
-    Displays a formatted table of films.
-    Args:
-        films (list of dict): List of film entries with keys such as
-                              'film_id', 'title', 'description', 'release_year',
-                              'length', 'rating'.
-    Returns:
-        None
-    '''
-
+def display_films_table(films: list[dict], highlight_name: str = '') -> None:
     if not films:
         print('\nNo films found.')
         return
 
     table = []
     for film in films:
+        actors = film.get('actors', '')
+
+        if highlight_name and highlight_name.lower() in actors.lower():
+            actors_list = [a.strip() for a in actors.split(',')]
+            main = [a for a in actors_list if highlight_name.lower() in a.lower()]
+            others = [a for a in actors_list if highlight_name.lower() not in a.lower()]
+            actors = ', '.join(main + others)
+
+        actors_display = (actors[:65] + '...') if len(actors) > 65 else actors
+
         row = [
             film.get('film_id', ''),
             film.get('title', ''),
@@ -125,8 +125,9 @@ def display_films_table(films: list[dict]) -> None:
             film.get('release_year', ''),
             film.get('length', ''),
             film.get('rating', ''),
+            actors_display,
         ]
         table.append(row)
 
-    headers = ['ID', 'Title', 'Description', 'Year', 'Length', 'Rating']
+    headers = ['ID', 'Title', 'Description', 'Year', 'Length', 'Rating', 'Actors']
     print(tabulate.tabulate(table, headers=headers, tablefmt='grid'))

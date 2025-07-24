@@ -99,7 +99,8 @@ def handle_actor_search(conn) -> None:
             'first_name': first_name,
             'last_name': last_name
         })
-        if handle_pagination(results, offset, display_utils.display_films_table):
+        if handle_pagination(results, offset, 
+                             lambda res: display_utils.display_films_table(res, highlight_name=name_part)):
             offset += 10
         else:
             break
