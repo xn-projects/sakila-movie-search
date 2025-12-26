@@ -5,55 +5,65 @@ consistently during program execution.
 
 from functools import wraps
 from datetime import datetime
+from pathlib import Path
+from typing import Callable, Optional
 from display_utils import colorize
 
-def log_error_to_file(message: str, filename: str = 'error.log') -> None:
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+LOG_DIR = BASE_DIR / 'logs'
+LOG_FILE = LOG_DIR / 'error.log'
+
+def log_error_to_file(message: str) -> None:
     '''
-    Logs an error message to a specified log file with a timestamp.
-    Args:
-        message (str): The error message to log.
-        filename (str): The log file path. Defaults to 'error.log'.
-    Returns:
-        None
+    Writes an error message to the log file with a timestamp.
     '''
+    LOG_DIR.mkdir(exist_ok=True)
 
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    with open(filename, 'a', encoding='utf-8') as f:
+    with open(LOG_FILE, 'a', encoding='utf-8') as f:
         f.write(f'[{timestamp}] {message}\n')
 
 
 def show_error(message: str) -> None:
     '''
-    Prints an error message to the console, colorized in red.
-    Args:
-        message (str): The error message to display.
-    Returns:
-        None
+    Displays an error message in red color in the console.
     '''
 
     print(colorize(message, 'red'))
 
 
-def log_error(display: bool = True):
+def log_error(display: bool = True, rethrow: bool = False) -> Callable:
     '''
-    Decorator that wraps a function to log exceptions to a file and optionally
-    display them in the console.
+    Decorator for logging exceptions during function execution.
+
     Args:
-        display (bool): If True, error messages are printed to the console.
-                        Defaults to True.
+        display (bool): Show error message in console.
+        rethrow (bool): Re-raise exception after logging.
+
     Returns:
-        Callable: The wrapped function with error logging.
+        Callable: Wrapped function.
     '''
 
-    def decorator(func):
+    def decorator(func: Callable):
         @wraps(func)
         def wrapper(*args, **kwargs):
             try:
                 return func(*args, **kwargs)
             except Exception as e:
-                log_error_to_file(str(e))
+                error_message = (
+                    f'{type(e).__name__} in {func.__name__}: {e}'
+                )
+                log_error_to_file(error_message)
+
                 if display:
                     show_error(f'Error: {e}')
+
+                if rethrow:
+                    raise
+
                 return None
+
         return wrapper
+
     return decorator
