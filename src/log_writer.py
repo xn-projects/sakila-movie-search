@@ -5,7 +5,7 @@ to MongoDB and displaying them in a tabular format.
 
 from datetime import datetime, timezone
 from tabulate import tabulate
-import settings
+from . import settings
 
 POSSIBLE_KEYS = [
     'keyword',
