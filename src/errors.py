@@ -7,7 +7,7 @@ from functools import wraps
 from datetime import datetime
 from pathlib import Path
 from typing import Callable, Optional
-from display_utils import colorize
+from .display_utils import colorize
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
