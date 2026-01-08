@@ -158,6 +158,8 @@ The end year can be left empty to search for a single year.
 A table of films featuring matching actor(s) is displayed.  
 The actor that matches the search criteria is displayed **first** in the **Actors** column.
 
+![Actor Search](actor_search_results.png)
+
 ---
 
 ## 3.5 Search Method 4 — By Film Length Range
@@ -178,6 +180,8 @@ The actor that matches the search criteria is displayed **first** in the **Actor
 
 A table of films whose duration falls within the specified length range is displayed.  
 Search results are shown in ascending order by **film ID**.
+
+![Length_Range_Search](length_range_search_results.png)
 
 ---
 
