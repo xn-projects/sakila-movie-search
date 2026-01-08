@@ -153,12 +153,12 @@ The end year can be left empty to search for a single year.
   * first name: `Uma`
   * last name: `Wood`
 
+![Actor Search](actor_search_results.png)
+
 ### Result
 
 A table of films featuring matching actor(s) is displayed.  
 The actor that matches the search criteria is displayed **first** in the **Actors** column.
-
-![Actor Search](actor_search_results.png)
 
 ---
 
@@ -176,12 +176,12 @@ The actor that matches the search criteria is displayed **first** in the **Actor
 3. Enter the maximum film length (in minutes): *(example: `120`)*
    If the maximum length is left empty, the search is performed using only the minimum length value.
 
+![Length_Range_Search](length_range_search_results.png)
+
 ### Result
 
 A table of films whose duration falls within the specified length range is displayed.  
 Search results are shown in ascending order by **film ID**.
-
-![Length_Range_Search](length_range_search_results.png)
 
 ---
 
