@@ -33,7 +33,7 @@ Select an option by entering the corresponding number.
 If you enter a number outside the valid range (for example `5`), the application does not crash.
 It displays a message such as:
 
-> *Invalid choice. Please try again.*
+> `Invalid choice. Please try again.`
 
 and returns to the same menu.
 
@@ -58,7 +58,7 @@ Select a method by entering a number from **`1`** to **`4`**.
 
 If you enter a number outside `1–4`, the application displays:
 
-> *Invalid search method selection.*
+> `Invalid search method selection.`
 
 and returns to the Film Search Menu.
 
