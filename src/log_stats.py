@@ -6,8 +6,8 @@ from MongoDB.
 import collections
 from datetime import datetime
 from .log_writer import POSSIBLE_KEYS
-import settings
-import display_utils
+from . import settings
+from . import display_utils
 
 
 def get_top_queries(limit: int = 5) -> list[tuple[str, int]]:
@@ -90,9 +90,11 @@ def get_queries_by_type(query_type: str, limit: int = 5, fetch_limit: int = 100)
 def handle_query_count(query_type: str = None, show: bool = False) -> None:
     '''
     Logs a query type occurrence in MongoDB and optionally displays counts per query type.
+
     Args:
-        query_type (str, optional): The type of query to log. If invalid, a warning is printed.
+        query_type (str, optional): The type of query to log.
         show (bool): If True, displays the count of queries per type.
+
     Returns:
         None
     '''
@@ -119,11 +121,11 @@ def handle_query_count(query_type: str = None, show: bool = False) -> None:
                 }
             }
         ]
+
         results = list(collection.aggregate(pipeline))
         counts = {item['_id']: item['count'] for item in results}
 
-        data = []
-        for q_type in valid_types:
-            data.append([q_type, counts.get(q_type, 0)])
+        data = [[q_type, count] for q_type, count in counts.items()]
+        data.sort(key=lambda x: x[1], reverse=True)
 
-        display_utils.display_query_counts_table(dict(data))
+        display_utils.display_sorted_query_counts_table(data)
