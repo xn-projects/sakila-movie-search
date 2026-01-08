@@ -5,7 +5,7 @@ from MongoDB.
 
 import collections
 from datetime import datetime
-from log_writer import POSSIBLE_KEYS
+from .log_writer import POSSIBLE_KEYS
 import settings
 import display_utils
 
