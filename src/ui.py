@@ -3,11 +3,11 @@ The ui module contains functions for user interaction:
 displaying menus, requesting input data, and showing results in the console.
 '''
 
-import mysql_connector
-import log_writer
-import log_stats
-import display_utils
-import errors
+from . import mysql_connector
+from . import log_writer
+from . import log_stats
+from . import display_utils
+from . import errors
 
 
 @errors.log_error(display=True)
