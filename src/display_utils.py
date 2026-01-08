@@ -18,6 +18,14 @@ def display_query_counts_table(query_counts: dict) -> None:
     headers = ['Query Type', 'Count']
     print(tabulate.tabulate(data, headers=headers, tablefmt='grid'))
 
+def display_sorted_query_counts_table(data: list[list]) -> None:
+    '''
+    Displays sorted query counts.
+    Args:
+        data (list[list]): List of [query_type, count] pairs.
+    '''
+    headers = ['Query Type', 'Count']
+    print(tabulate.tabulate(data, headers=headers, tablefmt='grid'))
 
 COLORS = {
     'yellow': '\033[93m',
