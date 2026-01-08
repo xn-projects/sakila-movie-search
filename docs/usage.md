@@ -52,7 +52,7 @@ You will see the **Film Search Menu** with four search methods:
 3. **By actor (first and last name)**
 4. **By film length**
 
-Select a method by entering a number from `1` to `4`.
+Select a method by entering a number from **`1`** to **`4`**.
 
 ### 3.1 Invalid Input in Film Search Menu
 
@@ -111,20 +111,20 @@ Show the next 10 results?
 1. Select **Film Search → 2. By genre and year range**
 2. The application displays a list of available genres
 3. The application displays the **current minimum and maximum release years** based on the data available in the database:
-  `Available years: from 1990 to 2025`
+> `Available years: from 1990 to 2025`
 4. Enter a genre (example: `Comedy`)
    If the entered genre does not match any of the available genres, the application displays the following message:
-  `Invalid genre. Please try again.`
+> `Invalid genre. Please try again.`
   After that, the user is prompted to enter the genre again.
 6. Enter a start year (example: `1993`)
 7. Enter an end year (example: `1996`)
    If the entered year range is invalid, the application displays:
-  `Year range is invalid. Please try again.`
+> `Year range is invalid. Please try again.`
   After that, the user is prompted to enter the year range again.
 
 ![Genre and Year Search](genre_year_search_example.png)
 
-> The end year can be left empty to search for a single year.
+The end year can be left empty to search for a single year.
 
 ---
 
@@ -169,7 +169,7 @@ The actor that matches the search criteria is displayed **first** in the **Actor
 1. Select **Film Search → 4. By film length**
    Before entering the length values, the application displays the **current minimum and maximum film length**,  
    calculated dynamically based on the data available in the database:
-  `Available movie length range: from 46 to 185 minutes`
+> `Available movie length range: from 46 to 185 minutes`
 2. Enter the minimum film length (in minutes): *(example: `90`)*
 3. Enter the maximum film length (in minutes): *(example: `120`)*
    If the maximum length is left empty, the search is performed using only the minimum length value.
@@ -257,7 +257,7 @@ Options:
 ### Invalid Query Type
 
 If the entered query type does not match any of the supported values, the application displays:
-`No queries found.`
+> `No queries found.`
 After that, the application returns the user to the **Main Menu**.
 
 ---
@@ -290,7 +290,7 @@ You will be asked to confirm:
 2. **No, return to main menu**
 
 - Selecting **Yes** terminates the application and displays the message:
-  `Goodbye!`
+> `Goodbye!`
 - Selecting **No** returns the user to the **Main Menu**.
 
 This concludes the usage guide for the Console Movie Search Application.  
