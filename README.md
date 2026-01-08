@@ -120,6 +120,8 @@ sakila-movie-search/
 │   ├── main_menu.png
 │   ├── keyword_search_example.png
 │   ├── genre_year_search_example.png
+│   ├── actor_search_results.png
+│   ├── length_range_search_results.png
 │   ├── frequency_by_query_type.png
 │   ├── last_5_search_queries.png
 │   ├── queries_by_type_length_range.png
