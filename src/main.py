@@ -2,9 +2,9 @@
 Main module: запуск программы, обработка меню и подключение к БД.
 '''
 
-import display_utils
-import ui
-import settings
+from . import display_utils
+from . import ui
+from . import settings
 
 def main() -> None:
     '''
