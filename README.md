@@ -68,6 +68,7 @@ This separation allows transactional and analytical workloads to remain independ
 ## 5. MongoDB Logging Example
 
 Each user search is stored as a document with a fixed schema.
+The JSON below represents the logical structure of a query log document as written by the application:
 
 ```json
 {
@@ -85,6 +86,8 @@ Each user search is stored as a document with a fixed schema.
   "timestamp": "2025-06-30T17:07:12Z"
 }
 ```
+
+The screenshot below shows the same document as it appears in MongoDB, including the automatically generated `_id` field:
 
 ![MongoDB Query Log Example](docs/mongodb_query_log_example.png)
 
